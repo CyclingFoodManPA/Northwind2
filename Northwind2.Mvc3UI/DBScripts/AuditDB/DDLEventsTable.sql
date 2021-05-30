@@ -1,0 +1,33 @@
+USE AuditDB;
+GO
+
+PRINT '******************'
+PRINT ' CREATE DDLEvents '
+PRINT '******************'
+GO
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DDLEvents]
+(
+   [DDLEventsID]     INT IDENTITY(1, 1) NOT NULL
+   ,[PostTime]         DATETIME2 NOT NULL DEFAULT CURRENT_TIMESTAMP
+   ,[DatabaseUserName] SYSNAME NOT NULL
+   ,[EventType]        SYSNAME NOT NULL
+   ,[TSQL]             NVARCHAR(MAX) NOT NULL
+   ,[XmlEvent]         XML NOT NULL
+   ,[DatabaseName]     NVARCHAR(255) NOT NULL
+   ,[SchemaName]       SYSNAME NULL
+   ,[ObjectName]       SYSNAME NULL
+   ,[HostName]         VARCHAR(64) NOT NULL
+   ,[IPAddress]        VARCHAR(32) NOT NULL
+   ,[ProgramName]      NVARCHAR(255) NOT NULL
+   ,[LoginName]        NVARCHAR(255) NOT NULL
+   CONSTRAINT [PK_DDLEvents_DDLEventsID] PRIMARY KEY NONCLUSTERED ( [DDLEventsID] ASC )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+GO 

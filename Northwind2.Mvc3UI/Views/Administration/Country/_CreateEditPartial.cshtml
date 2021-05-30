@@ -1,0 +1,52 @@
+﻿@******************************************************************************
+ *   View Name: _CreateEditPartial
+ *  Controller: Country
+ *  Decription: Allows for Create/Edit of a Country
+ *        Date: Tuesday, July 5, 2016
+ *      Author: ksafford                  
+ *                    
+ *  Modification History
+ *  Who    When    What
+ *  --- ---------- -----------------------------------------------------------
+ *  
+*******************************************************************************@
+@using Northwind2.Mvc3UI.Infrastructure
+@model Northwind2.Mvc3UI.ViewModels.Administration.CountryViewModel
+     
+@Html.ValidationSummary(true)         
+<fieldset>
+    @if (@Model.CountryID == -1) 
+    {
+	    <legend>Country Create</legend>
+	} 
+    else 
+    {
+		<legend>Country Edit for Id = @Model.CountryID</legend>
+	}
+    <p class="error">@ViewBag.ErrorMessage</p>
+
+	@Html.HiddenFor(model => model.CountryID)
+	@Html.HiddenFor(model => model.Modified)
+    @Html.HiddenFor(model => model.ModifiedDate)
+	@Html.HiddenFor(model => model.ModifiedBy)
+    @Html.HiddenFor(model => model.AddedDate)
+	@Html.HiddenFor(model => model.AddedBy)
+
+    <table cellspacing="0" cellpadding="0" class="grid">
+        <tr>
+            <td>@Html.LabelFor(model => model.CountryName)</td>
+            <td>
+                <div class="editor-field">
+			        @Html.EditorFor(model => model.CountryName)
+                    @Html.ValidationMessageFor(model => model.CountryName)
+                </div>
+            </td>
+        </tr>        
+    </table>
+    
+    <p>
+        @Html.AntiForgeryToken() 
+		<input type="submit" value="Save" />
+	</p>
+</fieldset>	
+

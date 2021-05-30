@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://www.northwind.com/services/Northwind2Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:41287/Implementation/Northwind2Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:41287/Implementation/Northwind2Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Northwind2.ServiceWcf.SDO" />
+  <xs:element name="ContactTitleAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q1:ContactTitleSaveRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactTitleSaveRequest">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitle" nillable="true" type="q2:ContactTitleSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q3="http://www.northwind.com/services/Northwind2Data" name="ContactTitleSaveRequest" nillable="true" type="q3:ContactTitleSaveRequest" />
+  <xs:complexType name="ContactTitleSDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactTitleID" type="xs:int" />
+      <xs:element minOccurs="0" name="ContactTitleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AddedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Modified" nillable="true" type="xs:base64Binary" />
+      <xs:element xmlns:q4="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Customers" nillable="true" type="q4:ArrayOfListItemSDO" />
+      <xs:element xmlns:q5="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Suppliers" nillable="true" type="q5:ArrayOfListItemSDO" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element xmlns:q6="http://www.northwind.com/services/Northwind2Data" name="ContactTitleSDO" nillable="true" type="q6:ContactTitleSDO" />
+  <xs:complexType name="ArrayOfListItemSDO">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="ListItemSDO" nillable="true" type="q7:ListItemSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q8="http://www.northwind.com/services/Northwind2Data" name="ArrayOfListItemSDO" nillable="true" type="q8:ArrayOfListItemSDO" />
+  <xs:complexType name="ListItemSDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element xmlns:q9="http://www.northwind.com/services/Northwind2Data" name="ListItemSDO" nillable="true" type="q9:ListItemSDO" />
+  <xs:element name="ContactTitleAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitleAddResult" nillable="true" type="q10:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ReturnNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NumberValue" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q11="http://www.northwind.com/services/Northwind2Data" name="ReturnNumber" nillable="true" type="q11:ReturnNumber" />
+  <xs:element name="ContactTitleGetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q12:QueryByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="QueryByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q13="http://www.northwind.com/services/Northwind2Data" name="QueryByIdRequest" nillable="true" type="q13:QueryByIdRequest" />
+  <xs:element name="ContactTitleGetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitleGetByIDResult" nillable="true" type="q14:ContactTitleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactTitleResponse">
+    <xs:sequence>
+      <xs:element xmlns:q15="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitle" nillable="true" type="q15:ContactTitleSDO" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q16="http://www.northwind.com/services/Northwind2Data" name="ContactTitleResponse" nillable="true" type="q16:ContactTitleResponse" />
+  <xs:element name="ContactTitleGetAllList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContactTitleGetAllListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitleGetAllListResult" nillable="true" type="q17:ContactTitleSelectListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactTitleSelectListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q18="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitleSelectList" nillable="true" type="q18:ContactTitleSelectList" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q19="http://www.northwind.com/services/Northwind2Data" name="ContactTitleSelectListResponse" nillable="true" type="q19:ContactTitleSelectListResponse" />
+  <xs:complexType name="ContactTitleSelectList">
+    <xs:sequence>
+      <xs:element xmlns:q20="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="ListItem" nillable="true" type="q20:ListItemSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q21="http://www.northwind.com/services/Northwind2Data" name="ContactTitleSelectList" nillable="true" type="q21:ContactTitleSelectList" />
+  <xs:element name="ContactTitleGetAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q22:ContactTitlesGetBySearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactTitlesGetBySearchRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactTitleId" type="xs:int" />
+      <xs:element minOccurs="0" name="ContactTitleSearchText" nillable="true" type="xs:string" />
+      <xs:element xmlns:q23="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="PaginationRequest" nillable="true" type="q23:PaginationRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q24="http://www.northwind.com/services/Northwind2Data" name="ContactTitlesGetBySearchRequest" nillable="true" type="q24:ContactTitlesGetBySearchRequest" />
+  <xs:complexType name="PaginationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element xmlns:q25="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Sort" nillable="true" type="q25:Sort" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q26="http://www.northwind.com/services/Northwind2Data" name="PaginationRequest" nillable="true" type="q26:PaginationRequest" />
+  <xs:complexType name="Sort">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SortBy" nillable="true" type="xs:string" />
+      <xs:element xmlns:q27="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="SortDirection" type="q27:SortDirection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q28="http://www.northwind.com/services/Northwind2Data" name="Sort" nillable="true" type="q28:Sort" />
+  <xs:simpleType name="SortDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending" />
+      <xs:enumeration value="Descending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element xmlns:q29="http://www.northwind.com/services/Northwind2Data" name="SortDirection" nillable="true" type="q29:SortDirection" />
+  <xs:element name="ContactTitleGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitleGetAllResult" nillable="true" type="q30:ContactTitleListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactTitleListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q31="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitles" nillable="true" type="q31:Categories" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q32="http://www.northwind.com/services/Northwind2Data" name="ContactTitleListResponse" nillable="true" type="q32:ContactTitleListResponse" />
+  <xs:complexType name="Categories">
+    <xs:sequence>
+      <xs:element xmlns:q33="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="ContactTitle" nillable="true" type="q33:ContactTitleSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q34="http://www.northwind.com/services/Northwind2Data" name="Categories" nillable="true" type="q34:Categories" />
+  <xs:element name="ContactTitleUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q35:ContactTitleSaveRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContactTitleUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitleUpdateResult" nillable="true" type="q36:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContactTitleDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q37:QueryByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContactTitleDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ContactTitleDeleteResult" nillable="true" type="q38:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q39:CountrySaveRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CountrySaveRequest">
+    <xs:sequence>
+      <xs:element xmlns:q40="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Country" nillable="true" type="q40:CountrySDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q41="http://www.northwind.com/services/Northwind2Data" name="CountrySaveRequest" nillable="true" type="q41:CountrySaveRequest" />
+  <xs:complexType name="CountrySDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AddedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Modified" nillable="true" type="xs:base64Binary" />
+      <xs:element xmlns:q42="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Customers" nillable="true" type="q42:ArrayOfListItemSDO" />
+      <xs:element xmlns:q43="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Suppliers" nillable="true" type="q43:ArrayOfListItemSDO" />
+      <xs:element xmlns:q44="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Invoices" nillable="true" type="q44:ArrayOfListItemSDO" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element xmlns:q45="http://www.northwind.com/services/Northwind2Data" name="CountrySDO" nillable="true" type="q45:CountrySDO" />
+  <xs:element name="CountryAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CountryAddResult" nillable="true" type="q46:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryGetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q47:QueryByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryGetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CountryGetByIDResult" nillable="true" type="q48:CountryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CountryResponse">
+    <xs:sequence>
+      <xs:element xmlns:q49="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Country" nillable="true" type="q49:CountrySDO" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q50="http://www.northwind.com/services/Northwind2Data" name="CountryResponse" nillable="true" type="q50:CountryResponse" />
+  <xs:element name="CountryGetAllList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryGetAllListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CountryGetAllListResult" nillable="true" type="q51:CountrySelectListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CountrySelectListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q52="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CountrySelectList" nillable="true" type="q52:CountrySelectList" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q53="http://www.northwind.com/services/Northwind2Data" name="CountrySelectListResponse" nillable="true" type="q53:CountrySelectListResponse" />
+  <xs:complexType name="CountrySelectList">
+    <xs:sequence>
+      <xs:element xmlns:q54="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="ListItem" nillable="true" type="q54:ListItemSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q55="http://www.northwind.com/services/Northwind2Data" name="CountrySelectList" nillable="true" type="q55:CountrySelectList" />
+  <xs:element name="CountryGetAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q56:CountriesGetBySearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CountriesGetBySearchRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="CountrySearchText" nillable="true" type="xs:string" />
+      <xs:element xmlns:q57="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="PaginationRequest" nillable="true" type="q57:PaginationRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q58="http://www.northwind.com/services/Northwind2Data" name="CountriesGetBySearchRequest" nillable="true" type="q58:CountriesGetBySearchRequest" />
+  <xs:element name="CountryGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CountryGetAllResult" nillable="true" type="q59:CountryListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CountryListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q60="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Countries" nillable="true" type="q60:Countries" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q61="http://www.northwind.com/services/Northwind2Data" name="CountryListResponse" nillable="true" type="q61:CountryListResponse" />
+  <xs:complexType name="Countries">
+    <xs:sequence>
+      <xs:element xmlns:q62="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="Country" nillable="true" type="q62:CountrySDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q63="http://www.northwind.com/services/Northwind2Data" name="Countries" nillable="true" type="q63:Countries" />
+  <xs:element name="CountryUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q64:CountrySaveRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CountryUpdateResult" nillable="true" type="q65:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q66:QueryByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CountryDeleteResult" nillable="true" type="q67:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q68:CustomerSaveRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CustomerSaveRequest">
+    <xs:sequence>
+      <xs:element xmlns:q69="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Customer" nillable="true" type="q69:CustomerSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q70="http://www.northwind.com/services/Northwind2Data" name="CustomerSaveRequest" nillable="true" type="q70:CustomerSaveRequest" />
+  <xs:complexType name="CustomerSDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactTitleID" type="xs:int" />
+      <xs:element minOccurs="0" name="ContactTitleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerIDOld" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AddedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Modified" nillable="true" type="xs:base64Binary" />
+      <xs:element xmlns:q71="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Invoices" nillable="true" type="q71:ArrayOfListItemSDO" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element xmlns:q72="http://www.northwind.com/services/Northwind2Data" name="CustomerSDO" nillable="true" type="q72:CustomerSDO" />
+  <xs:element name="CustomerAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerAddResult" nillable="true" type="q73:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerGetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q74:QueryByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerGetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerGetByIDResult" nillable="true" type="q75:CustomerResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CustomerResponse">
+    <xs:sequence>
+      <xs:element xmlns:q76="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Customer" nillable="true" type="q76:CustomerSDO" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q77="http://www.northwind.com/services/Northwind2Data" name="CustomerResponse" nillable="true" type="q77:CustomerResponse" />
+  <xs:element name="CustomerGetAllList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerGetAllListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerGetAllListResult" nillable="true" type="q78:CustomerSelectListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CustomerSelectListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q79="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerSelectList" nillable="true" type="q79:CustomerSelectList" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q80="http://www.northwind.com/services/Northwind2Data" name="CustomerSelectListResponse" nillable="true" type="q80:CustomerSelectListResponse" />
+  <xs:complexType name="CustomerSelectList">
+    <xs:sequence>
+      <xs:element xmlns:q81="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="ListItem" nillable="true" type="q81:ListItemSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q82="http://www.northwind.com/services/Northwind2Data" name="CustomerSelectList" nillable="true" type="q82:CustomerSelectList" />
+  <xs:element name="CustomerGetAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q83:CustomersGetBySearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CustomersGetBySearchRequest">
+    <xs:sequence>
+      <xs:element xmlns:q84="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerSearchFields" nillable="true" type="q84:CustomerSearchFields" />
+      <xs:element xmlns:q85="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="PaginationRequest" nillable="true" type="q85:PaginationRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q86="http://www.northwind.com/services/Northwind2Data" name="CustomersGetBySearchRequest" nillable="true" type="q86:CustomersGetBySearchRequest" />
+  <xs:complexType name="CustomerSearchFields">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactTitleID" type="xs:int" />
+      <xs:element minOccurs="0" name="ContactTitleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q87="http://www.northwind.com/services/Northwind2Data" name="CustomerSearchFields" nillable="true" type="q87:CustomerSearchFields" />
+  <xs:element name="CustomerGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerGetAllResult" nillable="true" type="q88:CustomerListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CustomerListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q89="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Customers" nillable="true" type="q89:Customers" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q90="http://www.northwind.com/services/Northwind2Data" name="CustomerListResponse" nillable="true" type="q90:CustomerListResponse" />
+  <xs:complexType name="Customers">
+    <xs:sequence>
+      <xs:element xmlns:q91="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="q91:CustomerSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q92="http://www.northwind.com/services/Northwind2Data" name="Customers" nillable="true" type="q92:Customers" />
+  <xs:element name="CustomerUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q93:CustomerSaveRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerUpdateResult" nillable="true" type="q94:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="input" nillable="true" type="q95:QueryByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CustomerDeleteResult" nillable="true" type="q96:ReturnNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryGetAllList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryGetAllListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CategoryGetAllListResult" nillable="true" type="q97:CategorySelectListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CategorySelectListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q98="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="CategorySelectList" nillable="true" type="q98:CategorySelectList" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q99="http://www.northwind.com/services/Northwind2Data" name="CategorySelectListResponse" nillable="true" type="q99:CategorySelectListResponse" />
+  <xs:complexType name="CategorySelectList">
+    <xs:sequence>
+      <xs:element xmlns:q100="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="ListItem" nillable="true" type="q100:ListItemSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q101="http://www.northwind.com/services/Northwind2Data" name="CategorySelectList" nillable="true" type="q101:CategorySelectList" />
+  <xs:element name="ProductGetAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q102:ProductsGetBySearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ProductsGetBySearchRequest">
+    <xs:sequence>
+      <xs:element xmlns:q103="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ProductSearchFields" nillable="true" type="q103:ProductSearchFields" />
+      <xs:element xmlns:q104="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="PaginationRequest" nillable="true" type="q104:PaginationRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q105="http://www.northwind.com/services/Northwind2Data" name="ProductsGetBySearchRequest" nillable="true" type="q105:ProductsGetBySearchRequest" />
+  <xs:complexType name="ProductSearchFields">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MinUnitPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaxUnitPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MinUnitsInStock" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaxUnitsInStock" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MinUnitsOnOrder" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaxUnitsOnOrder" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MinReorderLevel" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaxReorderLevel" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q106="http://www.northwind.com/services/Northwind2Data" name="ProductSearchFields" nillable="true" type="q106:ProductSearchFields" />
+  <xs:element name="ProductGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ProductGetAllResult" nillable="true" type="q107:ProductListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ProductListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q108="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Products" nillable="true" type="q108:Products" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q109="http://www.northwind.com/services/Northwind2Data" name="ProductListResponse" nillable="true" type="q109:ProductListResponse" />
+  <xs:complexType name="Products">
+    <xs:sequence>
+      <xs:element xmlns:q110="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="q110:ProductSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q111="http://www.northwind.com/services/Northwind2Data" name="Products" nillable="true" type="q111:Products" />
+  <xs:complexType name="ProductSDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuantityPerUnit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UnitsInStock" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitsOnOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="ReorderLevel" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AddedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Modified" nillable="true" type="xs:base64Binary" />
+      <xs:element xmlns:q112="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="Invoices" nillable="true" type="q112:ArrayOfListItemSDO" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element xmlns:q113="http://www.northwind.com/services/Northwind2Data" name="ProductSDO" nillable="true" type="q113:ProductSDO" />
+  <xs:element name="SupplierGetAllList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupplierGetAllListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="SupplierGetAllListResult" nillable="true" type="q114:SupplierSelectListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SupplierSelectListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q115="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="SupplierSelectList" nillable="true" type="q115:SupplierSelectList" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q116="http://www.northwind.com/services/Northwind2Data" name="SupplierSelectListResponse" nillable="true" type="q116:SupplierSelectListResponse" />
+  <xs:complexType name="SupplierSelectList">
+    <xs:sequence>
+      <xs:element xmlns:q117="http://www.northwind.com/services/Northwind2Data" minOccurs="0" maxOccurs="unbounded" name="ListItem" nillable="true" type="q117:ListItemSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q118="http://www.northwind.com/services/Northwind2Data" name="SupplierSelectList" nillable="true" type="q118:SupplierSelectList" />
+  <xs:element name="LoginAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q119:LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="LoginRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q120="http://www.northwind.com/services/Northwind2Data" name="LoginRequest" nillable="true" type="q120:LoginRequest" />
+  <xs:element name="LoginAuthenticationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="LoginAuthenticationResult" nillable="true" type="q121:LoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="LoginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q122="http://www.northwind.com/services/Northwind2Data" name="LoginResponse" nillable="true" type="q122:LoginResponse" />
+  <xs:element name="ApplicationUserToApplicationRoleIsIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q123:UserInRoleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UserInRoleRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q124="http://www.northwind.com/services/Northwind2Data" name="UserInRoleRequest" nillable="true" type="q124:UserInRoleRequest" />
+  <xs:element name="ApplicationUserToApplicationRoleIsInResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="ApplicationUserToApplicationRoleIsInResult" nillable="true" type="q125:UserInRoleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UserInRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsInRole" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q126="http://www.northwind.com/services/Northwind2Data" name="UserInRoleResponse" nillable="true" type="q126:UserInRoleResponse" />
+  <xs:element name="UsernameInApplicationRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="request" nillable="true" type="q127:UserInRoleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsernameInApplicationRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="UsernameInApplicationRolesResult" nillable="true" type="q128:UserInRolesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UserInRolesResponse">
+    <xs:sequence>
+      <xs:element xmlns:q129="http://www.northwind.com/services/Northwind2Data" minOccurs="0" name="UserToRoleNames" nillable="true" type="q129:_x0020_UserToRoleNames" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q130="http://www.northwind.com/services/Northwind2Data" name="UserInRolesResponse" nillable="true" type="q130:UserInRolesResponse" />
+  <xs:complexType name="_x0020_UserToRoleNames">
+    <xs:sequence>
+      <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/Northwind2.ServiceWcf.SDO" minOccurs="0" maxOccurs="unbounded" name="UserToRoleNameSDO" nillable="true" type="q131:UserFullNameToRoleNameSDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q132="http://www.northwind.com/services/Northwind2Data" name="_x0020_UserToRoleNames" nillable="true" type="q132:_x0020_UserToRoleNames" />
+</xs:schema>

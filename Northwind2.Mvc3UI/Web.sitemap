@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode>
+        <siteMapNode id="Home" title="Home" >
+            <siteMapNode action="Index" controller="Home" title="Home" description="Home Page" />
+            <siteMapNode action="About" controller="Home" title="About" description="About MvcSiteMap" />
+        </siteMapNode>
+
+        <siteMapNode title="Account" description="Account Information">
+            <siteMapNode action="LogOn" controller="Account" title="LogOn" description="Log On"/>
+            <siteMapNode action="ChangePassword" controller="Account" title="Change Password" description="Change Password"/>
+            <siteMapNode action="ChangePasswordSuccessful" controller="Account" title="Change Password Successful" description="Change Password Successful"/>
+            <siteMapNode action="Register" controller="Account" title="Register" description="Register"/>
+        </siteMapNode>
+
+        <siteMapNode id="Administration" title="Admininstration" roles="Administrator">
+            <siteMapNode id="ContactTitle" title="ContactTitles">
+                <siteMapNode title="List" action="Index" controller="ContactTitle"/>
+                <siteMapNode title="Add" action="Create" controller="ContactTitle"/>
+            </siteMapNode>
+            <siteMapNode id="Country" title="Countries">
+                <siteMapNode title="List" action="Index" controller="Country"/>
+                <siteMapNode title="Add" action="Create" controller="Country"/>
+            </siteMapNode>
+            <siteMapNode id="Holiday" title="Holidays">
+                <siteMapNode title="List" action="Index" controller="Holiday"/>
+                <siteMapNode title="Add" action="Create" controller="Holiday"/>
+            </siteMapNode>
+            <siteMapNode id="HolidayDescription" title="HolidayDescriptions">
+                <siteMapNode title="List" action="Index" controller="HolidayDescription"/>
+                <siteMapNode title="Add" action="Create" controller="HolidayDescription"/>
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode id="Customers" title="Customers" roles="Administrator, Customers, Managers">
+            <siteMapNode id="Customer" title="Customers">
+                <siteMapNode title="List" action="Index" controller="Customer"/>
+                <siteMapNode title="Add" action="Create" controller="Customer"/>
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode id="HR" title="Human Resources" roles="Administrator, HumanResources">
+            <siteMapNode id="Employee" title="Employees">
+                <siteMapNode title="List" action="Index" controller="Employee"/>
+                <siteMapNode title="Add" action="Create" controller="Employee"/>
+            </siteMapNode>
+            <siteMapNode id="EmployeeToTerritory" title="Emp. To Territories">
+                <siteMapNode title="List" action="Index" controller="EmployeeToTerritory"/>
+                <siteMapNode title="Add" action="Create" controller="EmployeeToTerritory"/>
+            </siteMapNode>
+            <siteMapNode id="Region" title="Regions">
+                <siteMapNode title="List" action="Index" controller="Region"/>
+                <siteMapNode title="Add" action="Create" controller="Region"/>
+            </siteMapNode>
+            <siteMapNode id="Territory" title="Territories">
+                <siteMapNode title="List" action="Index" controller="Territory"/>
+                <siteMapNode title="Add" action="Create" controller="Territory"/>
+            </siteMapNode>
+            <siteMapNode id="Title" title="Titles">
+                <siteMapNode title="List" action="Index" controller="Title"/>
+                <siteMapNode title="Add" action="Create" controller="Title"/>
+            </siteMapNode>
+            <siteMapNode id="TitleOfCourtesy" title="TitleOfCourtesies">
+                <siteMapNode title="List" action="Index" controller="TitleOfCourtesy"/>
+                <siteMapNode title="Add" action="Create" controller="TitleOfCourtesy"/>
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode id="Products" title="Products" roles="Administrator, Purchassing, Products">
+            <siteMapNode id="Product" title="Products">
+                <siteMapNode title="List" action="Index" controller="Product"/>
+                <siteMapNode title="Add" action="Create" controller="Product"/>
+            </siteMapNode>
+            <siteMapNode id="Category" title="Categories">
+                <siteMapNode title="List" action="Index" controller="Category"/>
+                <siteMapNode title="Add" action="Create" controller="Category"/>
+            </siteMapNode>
+            <siteMapNode id="Supplier" title="Suppliers">
+                <siteMapNode title="List" action="Index" controller="Supplier"/>
+                <siteMapNode title="Add" action="Create" controller="Supplier"/>
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode id="Sales" title="Sales" roles="Administrator, Purchassing, Sales">
+            <siteMapNode id="Invoice" title="Invoices">
+                <siteMapNode title="List" action="InvoiceIndex" controller="Invoice"/>
+                <siteMapNode title="Add" action="CustomerSelect" controller="Invoice"/>
+            </siteMapNode>
+            <siteMapNode id="InvoiceItem" title="InvoiceItems">
+                <siteMapNode title="List" action="Index" controller="InvoiceItem"/>
+            </siteMapNode>
+            <siteMapNode id="Shipper" title="Shippers">
+                <siteMapNode title="List" action="Index" controller="Shipper"/>
+                <siteMapNode title="Add" action="Create" controller="Shipper"/>
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode id="Security" title="Security" roles="Administrator">
+            <siteMapNode id="SystemRole" title="SystemRoles">
+                <siteMapNode title="List" action="Index" controller="SystemRole"/>
+                <siteMapNode title="Add" action="Create" controller="SystemRole"/>
+            </siteMapNode>
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>

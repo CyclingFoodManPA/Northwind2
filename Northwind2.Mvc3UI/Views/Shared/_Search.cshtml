@@ -1,0 +1,6 @@
+﻿@using (Html.BeginForm()) {
+  <p>
+    Filter: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string) &nbsp;
+    <input type="submit" value="Filter" />  
+  </p>
+}

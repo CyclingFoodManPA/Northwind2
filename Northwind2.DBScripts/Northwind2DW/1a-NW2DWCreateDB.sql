@@ -1,0 +1,158 @@
+/*
+** Copyright Microsoft, Inc. 1994 - 2000
+** All Rights Reserved.
+*/
+
+SET NOCOUNT ON
+GO
+
+USE [Master]
+GO
+IF EXISTS
+   (SELECT
+      *
+    FROM
+      sysdatabases
+    WHERE
+     name = 'Northwind2DW')
+  DROP DATABASE Northwind2DW
+go
+
+DECLARE @device_directory NVARCHAR(520)
+SELECT
+  @device_directory = SUBSTRING(filename,
+                                1,
+                                CHARINDEX(N'master.mdf',
+                                          LOWER(filename)) - 1)
+FROM
+  master.dbo.sysaltfiles
+WHERE
+  dbid = 1
+  AND fileid = 1
+
+EXECUTE (N'CREATE DATABASE Northwind2DW
+  ON PRIMARY (NAME = N''Northwind2DW_Data'', FILENAME = N''' + @device_directory + N'Northwind2DW_Data.mdf'')
+  LOG ON (NAME = N''Northwind2DW_Log'',  FILENAME = N''' + @device_directory + N'Northwind2DW_Log.ldf'')')
+go
+
+-- Set database compatibility level to:
+-- 120 - SQL Server 2014
+-- 110 - SQL Server 2012
+-- 100 - SQL Server 2008
+--  90 - SQL Server 2005
+EXEC dbo.Sp_dbcmptlevel
+  @dbname       =N'Northwind2DW',
+  @new_cmptlevel=110
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET ANSI_NULL_DEFAULT OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET ANSI_NULLS OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET ANSI_PADDING OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET ANSI_WARNINGS OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET ARITHABORT OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET AUTO_CLOSE ON
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET AUTO_CREATE_STATISTICS ON
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET AUTO_SHRINK OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET AUTO_UPDATE_STATISTICS ON
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET CURSOR_DEFAULT GLOBAL
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET NUMERIC_ROUNDABORT OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET QUOTED_IDENTIFIER OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET RECURSIVE_TRIGGERS OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET ENABLE_BROKER
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET TRUSTWORTHY OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET PARAMETERIZATION SIMPLE
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET READ_COMMITTED_SNAPSHOT OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET HONOR_BROKER_PRIORITY OFF
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET READ_WRITE
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET RECOVERY SIMPLE
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET MULTI_USER
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET PAGE_VERIFY CHECKSUM
+GO
+
+ALTER DATABASE [Northwind2DW]
+SET DB_CHAINING OFF
+GO 

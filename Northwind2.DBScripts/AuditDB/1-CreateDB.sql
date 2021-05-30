@@ -1,0 +1,187 @@
+USE [master]
+GO
+/*---------------------------------------------------------------------- 
+                                                                        
+  Create the Audit Database                                             
+  http://www.mssqltips.com/sqlservertip/2085/sql-server-ddl-triggers-to-track-all-database-changes/
+
+  ----------------------------------------------------------------------*/
+SET NOCOUNT ON
+GO
+
+USE [Master]
+GO
+IF EXISTS
+   (SELECT
+      *
+    FROM
+      sysdatabases
+    WHERE
+     name = 'AuditDB')
+  DROP DATABASE AuditDB
+GO
+
+DECLARE @device_directory NVARCHAR(520)
+SELECT
+  @device_directory = SUBSTRING(filename,
+                                1,
+                                CHARINDEX(N'master.mdf',
+                                          LOWER(filename)) - 1)
+FROM
+  master.dbo.sysaltfiles
+WHERE
+  dbid = 1
+  AND fileid = 1
+  
+EXECUTE (N'CREATE DATABASE [AuditDB]
+  ON PRIMARY (NAME = N''AuditDB_Data'', FILENAME = N''' + @device_directory + N'AuditDB_Data.mdf'')
+  LOG ON (NAME = N''AuditDB_Log'',  FILENAME = N''' + @device_directory + N'AuditDB_Log.ldf'')')
+GO
+
+/*  
+CREATE DATABASE [AuditDB] CONTAINMENT = NONE ON PRIMARY 
+( 
+	NAME = N'AuditDB', 
+	FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\AuditDB.mdf', 
+		SIZE = 4096KB, 
+		MAXSIZE = UNLIMITED, 
+		FILEGROWTH = 1024KB ) 
+	LOG ON ( 
+		NAME = N'AuditDB_log', 
+			FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\AuditDB_log.ldf', 
+			SIZE = 1024KB, 
+			MAXSIZE = 2048GB, 
+			FILEGROWTH = 10%)
+GO
+*/
+
+ALTER DATABASE [AuditDB]
+SET COMPATIBILITY_LEVEL = 110
+GO
+
+IF ( 1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled') )
+  BEGIN
+    EXEC [AuditDB].[dbo].[sp_fulltext_database]
+      @action = 'enable'
+  END
+GO
+
+ALTER DATABASE [AuditDB]
+SET ANSI_NULL_DEFAULT OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET ANSI_NULLS OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET ANSI_PADDING OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET ANSI_WARNINGS OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET ARITHABORT OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET AUTO_CLOSE OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET AUTO_CREATE_STATISTICS ON
+GO
+
+ALTER DATABASE [AuditDB]
+SET AUTO_SHRINK OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET AUTO_UPDATE_STATISTICS ON
+GO
+
+ALTER DATABASE [AuditDB]
+SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET CURSOR_DEFAULT GLOBAL
+GO
+
+ALTER DATABASE [AuditDB]
+SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET NUMERIC_ROUNDABORT OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET QUOTED_IDENTIFIER OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET RECURSIVE_TRIGGERS OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET DISABLE_BROKER
+GO
+
+ALTER DATABASE [AuditDB]
+SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET TRUSTWORTHY OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET PARAMETERIZATION SIMPLE
+GO
+
+ALTER DATABASE [AuditDB]
+SET READ_COMMITTED_SNAPSHOT OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET HONOR_BROKER_PRIORITY OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET RECOVERY FULL
+GO
+
+ALTER DATABASE [AuditDB]
+SET MULTI_USER
+GO
+
+ALTER DATABASE [AuditDB]
+SET PAGE_VERIFY CHECKSUM
+GO
+
+ALTER DATABASE [AuditDB]
+SET DB_CHAINING OFF
+GO
+
+ALTER DATABASE [AuditDB]
+SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF )
+GO
+
+ALTER DATABASE [AuditDB]
+SET TARGET_RECOVERY_TIME = 0 SECONDS
+GO
+
+ALTER DATABASE [AuditDB]
+SET READ_WRITE
+GO 

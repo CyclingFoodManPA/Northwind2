@@ -1,0 +1,16 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1>
+  @if (TempData["message"] != null) 
+	{
+    <div class="Message">@TempData["message"]</div>
+  }
+</h1>
+
+<h2>
+    Sorry, an error occurred while processing your request.
+</h2>

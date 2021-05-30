@@ -1,0 +1,91 @@
+﻿/* SIDE MENU   
+----------------------------------------------------------*/
+#sidemenu ul,li 
+{
+	padding: 0px;  
+	margin: 0px; 
+	list-style: none; 
+}
+#sidemenu 
+{
+	float: left; 
+	font-size: 12px; 
+	padding: 0px 15px 0px 0px; 
+	width: 150px; 
+}
+#sidemenu span 
+{
+	display:block; 
+	color: #ffffff; 
+	background-color: #5c87b2; 
+	padding:5px 10px 5px 10px; 
+	border-bottom: 1px solid white; 
+	font-weight: bold; 
+}
+
+/* Css hack to disable unwanted behavior from jquery accordion (puts a span within the header span)*/
+#sidemenu .ui-icon 
+{
+	display:inline; 
+	color: #000000; 
+	background-color: #ffffff; 
+	padding: 0px; 
+	border: 0px; 
+	font-weight: normal; 
+}
+#sidemenu ul span 
+{
+	color: #000000; 
+	background-color: #ffffff; 
+	padding: 0px; 
+	border: 0px; 
+	font-weight: normal; 
+}
+#sidemenu ul a 
+{
+	display: block; 
+	padding: 5px 0px 5px 0px; 
+	cursor:pointer; 
+}
+#sidemenu ul span 
+{
+	display: block; 
+	padding: 5px 0px 5px 0px; 
+	cursor:pointer; 
+}
+#sidemenu ul 
+{
+	margin-left: 5px;
+}
+#sidemenu ul .expandable 
+{
+	padding-left: 16px; 
+	background-image: url(Icons/toggle-expand-blue.png); 
+	background-repeat:no-repeat;
+	background-position: 0px 7px; 
+}
+#sidemenu ul .collapsable 
+{
+	padding-left: 16px; 
+	background-image: url(Icons/toggle-collapse-blue.png); 
+	background-repeat:no-repeat; 
+	background-position: 0px 6px; 
+}
+#sidemenu span:hover 
+{
+	cursor: pointer; 
+}
+#sidemenu a 
+{
+	text-decoration: none; 
+	color: #000000; 
+}
+#sidemenu a:hover 
+{
+	text-decoration: underline;
+}
+#sidemenu a.selected 
+{
+	text-decoration: underline;
+}
+

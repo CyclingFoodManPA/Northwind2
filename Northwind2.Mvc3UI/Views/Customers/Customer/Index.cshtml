@@ -1,0 +1,95 @@
+﻿@******************************************************************************
+ *   View Name: Index
+ *  Controller: Customer
+ *  Decription: Allows viewing a list of Customer
+ *        Date: Wednesday, July 6, 2016
+ *      Author: ksafford                   
+ *                    
+ *  Modification History
+ *  Who    When    What
+ *  --- ---------- -----------------------------------------------------------
+ *
+*******************************************************************************@
+@model Northwind2.Mvc3UI.ViewModels.Customers.CustomerGridViewModel
+
+<div>
+    @if (TempData["message"] != null) 
+    {
+        <div class="Message">@TempData["message"]</div>
+    }
+</div>
+<br />  
+<h2>Customers</h2>
+<p>
+    <i>You are viewing page @Model.CurrentPageIndex  of @Model.PageCount ...</i>
+</p>
+@using (Html.BeginForm("Index", "Customer", FormMethod.Get)) 
+{ 
+    <fieldset class="filtering">
+        <legend>Filter Customer Results</legend>
+        <div>
+		    <p>
+			    <b>Name Contains:</b>
+				 @Html.TextBoxFor(model => model.SearchName)		
+
+			</p>
+            <p>
+                <b>Select Contact Title:</b>
+                @Html.DropDownList("SelectedContactTitle","-- All Contact Titles --") &nbsp; 
+            <p>  
+                <b>Select Country:</b>
+                @Html.DropDownList("SelectedCountry","-- All Countries --") &nbsp; 
+
+            @Html.Hidden("sortBy", Model.SortBy)
+            @Html.Hidden("ascending", Model.SortAscending)
+
+            <input type="submit" value="Filter Results" />
+        </div>
+    </fieldset>
+} 
+
+<table class="grid">
+    <tr>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "CustomerID" }, { "DisplayName", "CustomerID" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "CustomerName" }, { "DisplayName", "CustomerName" } })</th>       
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "ContactName" }, { "DisplayName", "ContactName" } })</th>   
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "ContactTitle" }, { "DisplayName", "ContactTitle" } })</th> 
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "CountryName" }, { "DisplayName", "CountryName" } })</th>   
+        <th></th>   
+	    @if(User.IsInRole("Administrator"))
+        {
+            <th></th>		 
+		}
+    </tr>
+    @foreach (var item in Model.Customers) 
+    { 
+	<tr>
+	    <td class="left">@item.CustomerID</td>
+		<td class="left">@Html.ActionLink(item.CustomerName, "Edit", new { id=item.CustomerID })</td>
+		<td class="left">@item.ContactName</td>
+		<td class="left">@item.ContactTitleName</td>
+		<td class="left">@item.CountryName</td>
+	    @if (User.IsInRole("Administrator"))
+        {
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })</td>		 
+        } 
+    </tr>    
+	}    
+    <tr>
+	    @if (User.IsInRole("Administrator") || User.IsInRole("Customers"))
+        {
+            <td class="pager" colspan="6">@Html.Partial("_Pager", Model)</td> 
+        } 
+        else 
+        {
+            <td class="pager" colspan="5">@Html.Partial("_Pager", Model)</td>
+        }		
+    </tr>    
+</table>
+
+<table cellspacing="0" cellpadding="0" class="grid">
+	<tr>
+		<td>@Html.ActionLink("Add Customer", "Create")</td>
+	</tr>	
+</table> 
+

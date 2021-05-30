@@ -1,0 +1,95 @@
+﻿@******************************************************************************
+ *   View Name: Index
+ *  Controller: ContactTitle
+ *  Decription: Allows viewing a list of ContactTitles
+ *        Date: Wednesday, July 6, 2016
+ *      Author: ksafford                   
+ *                    
+ *  Modification History
+ *  Who    When    What
+ *  --- ---------- -----------------------------------------------------------
+ *
+*******************************************************************************@
+@model Northwind2.Mvc3UI.ViewModels.Products.ProductGridViewModel
+
+<div>
+    @if (TempData["message"] != null) 
+    {
+        <div class="Message">@TempData["message"]</div>
+    }
+</div>
+<br />  
+<h2>Products</h2>
+<p>
+    <i>You are viewing page @Model.CurrentPageIndex  of @Model.PageCount ...</i>
+</p>
+@using (Html.BeginForm("Index", "Product", FormMethod.Get)) 
+{ 
+    /*
+    <fieldset class="filtering">
+        <legend>Filter Product Results</legend>
+        <div>
+		    <p>
+			    <b>Name Contains:</b>
+				 @Html.TextBoxFor(model => model.SearchName)		
+
+			</p>
+            <p>
+                <b>Select Supplier Name:</b>
+                @Html.DropDownList("SelectedSupplierName","-- All Supplier Names --") &nbsp; 
+            <p>  
+                <b>Select Category Name:</b>
+                @Html.DropDownList("SelectedCategory","-- All Categories --") &nbsp; 
+
+            @Html.Hidden("sortBy", Model.SortBy)
+            @Html.Hidden("ascending", Model.SortAscending)
+
+            <input type="submit" value="Filter Results" />
+        </div>
+    </fieldset>
+    */
+} 
+
+<table class="grid">
+    <tr>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "ProductID" }, { "DisplayName", "ProductID" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "ProductName" }, { "DisplayName", "ProductName" } })</th>       
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "SupplierName" }, { "DisplayName", "SupplierName" } })</th>   
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "CategoryName" }, { "DisplayName", "CategoryName" } })</th>   
+        <th></th>   
+	    @if(User.IsInRole("Administrator"))
+        {
+            <th></th>		 
+		}
+    </tr>
+    @foreach (var item in Model.Products) 
+    { 
+	<tr>
+	    <td class="left">@item.ProductID</td>
+		<td class="left">@Html.ActionLink(item.ProductName, "Edit", new { id=item.ProductID })</td>
+		<td class="left">@item.SupplierName</td>
+		<td class="left">@item.CategoryName</td>
+	    @if (User.IsInRole("Administrator"))
+        {
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.ProductID })</td>		 
+        } 
+    </tr>    
+	}    
+    <tr>
+	    @if (User.IsInRole("Administrator") || User.IsInRole("Products"))
+        {
+            <td class="pager" colspan="6">@Html.Partial("_Pager", Model)</td> 
+        } 
+        else 
+        {
+            <td class="pager" colspan="5">@Html.Partial("_Pager", Model)</td>
+        }		
+    </tr>    
+</table>
+
+<table cellspacing="0" cellpadding="0" class="grid">
+	<tr>
+		<td>@Html.ActionLink("Add Product", "Create")</td>
+	</tr>	
+</table> 
+

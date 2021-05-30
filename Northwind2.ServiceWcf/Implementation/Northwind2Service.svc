@@ -1,0 +1,4 @@
+﻿<%@ ServiceHost Language="C#" 
+                Debug="true" 
+                Service="Northwind2.ServiceWcf.Implementation.Northwind2Service" 
+                CodeBehind="Northwind2Service.svc.cs" %>

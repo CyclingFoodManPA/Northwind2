@@ -1,0 +1,81 @@
+﻿@******************************************************************************
+ *   View Name: Index
+ *  Controller: ContactTitle
+ *  Decription: Allows viewing a list of ContactTitles
+ *        Date: Tuesday, July 5, 2016
+ *      Author: ksafford                   
+ *                    
+ *  Modification History
+ *  Who    When    What
+ *  --- ---------- -----------------------------------------------------------
+ *
+*******************************************************************************@
+@model Northwind2.Mvc3UI.ViewModels.Administration.ContactTitleGridViewModel
+
+<div>
+    @if (TempData["message"] != null) 
+    {
+        <div class="Message">@TempData["message"]</div>
+    }
+</div>
+<br />  
+<h2>ContactTitles</h2>
+<p>
+    <i>You are viewing page @Model.CurrentPageIndex  of @Model.PageCount ...</i>
+</p>
+@using (Html.BeginForm("Index", "ContactTitle", FormMethod.Get)) 
+{ 
+    <fieldset class="filtering">
+        <legend>Filter ContactTitle Results</legend>
+        <div>
+		    <p>
+			    <b>Name Contains:</b>
+				 @Html.TextBoxFor(model => model.SearchName)		
+
+			</p>
+            @Html.Hidden("sortBy", Model.SortBy)
+            @Html.Hidden("ascending", Model.SortAscending)
+
+            <input type="submit" value="Filter Results" />
+        </div>
+    </fieldset>
+} 
+
+<table class="grid">
+    <tr>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "ContactTitleID" }, { "DisplayName", "ContactTitleID" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "ContactTitleName" }, { "DisplayName", "ContactTitleName" } })</th>       
+	    @if(User.IsInRole("Administrator"))
+        {
+            <th></th>		 
+		}
+    </tr>
+    @foreach (var item in Model.ContactTitles) 
+    { 
+	<tr>
+	    <td class="left">@item.ContactTitleID</td>
+		<td class="left">@Html.ActionLink(item.ContactTitleName, "Edit", new { id=item.ContactTitleID })</td>
+	    @if (User.IsInRole("Administrator"))
+        {
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.ContactTitleID })</td>		 
+        } 
+    </tr>    
+	}    
+    <tr>
+	    @if (User.IsInRole("Administrator"))
+        {
+            <td class="pager" colspan="3">@Html.Partial("_Pager", Model)</td> 
+        } 
+        else 
+        {
+            <td class="pager" colspan="2">@Html.Partial("_Pager", Model)</td>
+        }		
+    </tr>    
+</table>
+
+<table cellspacing="0" cellpadding="0" class="grid">
+	<tr>
+		<td>@Html.ActionLink("Add ContactTitle", "Create")</td>
+	</tr>	
+</table> 
+

@@ -1,0 +1,81 @@
+﻿@******************************************************************************
+ *   View Name: Index
+ *  Controller: Country
+ *  Decription: Allows viewing a list of Countrys
+ *        Date: Tuesday, July 5, 2016
+ *      Author: ksafford                   
+ *                    
+ *  Modification History
+ *  Who    When    What
+ *  --- ---------- -----------------------------------------------------------
+ *
+*******************************************************************************@
+@model Northwind2.Mvc3UI.ViewModels.Administration.CountryGridViewModel
+
+<div>
+    @if (TempData["message"] != null) 
+    {
+        <div class="Message">@TempData["message"]</div>
+    }
+</div>
+<br />  
+<h2>Countrys</h2>
+<p>
+    <i>You are viewing page @Model.CurrentPageIndex  of @Model.PageCount ...</i>
+</p>
+@using (Html.BeginForm("Index", "Country", FormMethod.Get)) 
+{ 
+    <fieldset class="filtering">
+        <legend>Filter Country Results</legend>
+        <div>
+		    <p>
+			    <b>Name Contains:</b>
+				 @Html.TextBoxFor(model => model.SearchName)		
+
+			</p>
+            @Html.Hidden("sortBy", Model.SortBy)
+            @Html.Hidden("ascending", Model.SortAscending)
+
+            <input type="submit" value="Filter Results" />
+        </div>
+    </fieldset>
+} 
+
+<table class="grid">
+    <tr>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "CountryID" }, { "DisplayName", "CountryID" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "CountryName" }, { "DisplayName", "CountryName" } })</th>       
+	    @if(User.IsInRole("Administrator"))
+        {
+            <th></th>		 
+		}
+    </tr>
+    @foreach (var item in Model.Countrys) 
+    { 
+	<tr>
+	    <td class="left">@item.CountryID</td>
+		<td class="left">@Html.ActionLink(item.CountryName, "Edit", new { id=item.CountryID })</td>
+	    @if (User.IsInRole("Administrator"))
+        {
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.CountryID })</td>		 
+        } 
+    </tr>    
+	}    
+    <tr>
+	    @if (User.IsInRole("Administrator"))
+        {
+            <td class="pager" colspan="3">@Html.Partial("_Pager", Model)</td> 
+        } 
+        else 
+        {
+            <td class="pager" colspan="2">@Html.Partial("_Pager", Model)</td>
+        }		
+    </tr>    
+</table>
+
+<table cellspacing="0" cellpadding="0" class="grid">
+	<tr>
+		<td>@Html.ActionLink("Add Country", "Create")</td>
+	</tr>	
+</table> 
+

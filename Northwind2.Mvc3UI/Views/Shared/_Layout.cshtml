@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>    
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+            @* Updated jquery libraries 2016/06/28 *@
+            <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+            <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />    
+            <link href="@Url.Content("~/Content/Sidemenu.css")" rel="stylesheet" type="text/css" />
+            <script src="@Url.Content("~/Scripts/jquery-3.0.0.min.js")" type="text/javascript"></script>
+            <script src="@Url.Content("~/Scripts/modernizr-2.6.2.min.js")" type="text/javascript"></script>
+            <script src="@Url.Content("~/Scripts/jquery-ui-1.11.4.min.js")" type="text/javascript"></script>  
+            <script src="@Url.Content("~/Scripts/EditorHookup.js")" type="text/javascript"></script>		  
+	        <script src="@Url.Content("~/Scripts/jquery.treeview.js")" type="text/javascript"></script>
+	        <script src="@Url.Content("~/Scripts/jquery.cookie.js")" type="text/javascript"></script>    
+	        <script type="text/javascript">
+            $(function () {
+		        $("#sidemenu li:has(.selected)").addClass("open");
+		        $("#sidemenu").treeview(
+                {
+			        animated: "fast",
+				    collapsed: true,
+				    unique: true,
+				    persist: "cookie",
+				    cookieOptions: { path: "/" }
+				})
+			});
+            </script>
+    </head>
+    <body>
+	<div class="page">
+	    <div id="header">
+		    <div id="title">
+			    <h1>Northwind MVC 3 (VS 2019) System</h1>
+            </div>
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+        </div>
+        <br class="clear" />
+	    <div id="main">
+		        <table>
+		            <tr>
+				        <td valign="top">
+					        <div id="menu">
+						        @Html.Raw(@Html.SiteMapMenu("sidemenu", SiteMap.RootNode, true))
+						    </div>
+					    </td>
+					    <td valign="top">
+					        <div id="body">
+						        @RenderBody()								
+						    </div>
+					    </td>					
+				    </tr>
+				    <tr>
+				        <div id="footer">					
+					    </div>					
+				    </tr>				
+			    </table>			
+                <br class="clear" />
+		    </div>
+        </div>
+    </body>
+</html>

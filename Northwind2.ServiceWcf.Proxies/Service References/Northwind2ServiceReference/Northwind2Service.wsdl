@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.northwind.com/services/Northwind2Data" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Northwind2Service" targetNamespace="http://www.northwind.com/services/Northwind2Data" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.northwind.com/services/Northwind2Data/Imports">
+      <xsd:import schemaLocation="http://localhost:41287/Implementation/Northwind2Service.svc?xsd=xsd0" namespace="http://www.northwind.com/services/Northwind2Data" />
+      <xsd:import schemaLocation="http://localhost:41287/Implementation/Northwind2Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:41287/Implementation/Northwind2Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Northwind2.ServiceWcf.SDO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INorthwind2Service_ContactTitleAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleAdd" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleGetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleGetByID" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleGetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleGetAllList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleGetAllList" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleGetAllList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleGetAllListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleGetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleGetAll" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleGetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleUpdate" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleDelete" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ContactTitleDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContactTitleDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountryAdd" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountryAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryGetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountryGetByID" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryGetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountryGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryGetAllList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountryGetAllList" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryGetAllList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountryGetAllListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryGetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountryGetAll" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryGetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountryGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountryUpdate" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountryUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountryDelete" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CountryDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountryDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerAdd" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerGetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGetByID" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerGetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerGetAllList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGetAllList" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerGetAllList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGetAllListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerGetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGetAll" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerGetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerUpdate" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerDelete" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CustomerDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CategoryGetAllList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CategoryGetAllList" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_CategoryGetAllList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CategoryGetAllListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ProductGetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductGetAll" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ProductGetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductGetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_SupplierGetAllList_InputMessage">
+    <wsdl:part name="parameters" element="tns:SupplierGetAllList" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_SupplierGetAllList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SupplierGetAllListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_LoginAuthentication_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_LoginAuthentication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ApplicationUserToApplicationRoleIsIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApplicationUserToApplicationRoleIsIn" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_ApplicationUserToApplicationRoleIsIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApplicationUserToApplicationRoleIsInResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_UsernameInApplicationRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsernameInApplicationRoles" />
+  </wsdl:message>
+  <wsdl:message name="INorthwind2Service_UsernameInApplicationRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsernameInApplicationRolesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INorthwind2Service">
+    <wsdl:operation name="ContactTitleAdd">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleAdd" message="tns:INorthwind2Service_ContactTitleAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleAddResponse" message="tns:INorthwind2Service_ContactTitleAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleGetByID">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetByID" message="tns:INorthwind2Service_ContactTitleGetByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetByIDResponse" message="tns:INorthwind2Service_ContactTitleGetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleGetAllList">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetAllList" message="tns:INorthwind2Service_ContactTitleGetAllList_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetAllListResponse" message="tns:INorthwind2Service_ContactTitleGetAllList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleGetAll">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetAll" message="tns:INorthwind2Service_ContactTitleGetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetAllResponse" message="tns:INorthwind2Service_ContactTitleGetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleUpdate">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleUpdate" message="tns:INorthwind2Service_ContactTitleUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleUpdateResponse" message="tns:INorthwind2Service_ContactTitleUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleDelete">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleDelete" message="tns:INorthwind2Service_ContactTitleDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleDeleteResponse" message="tns:INorthwind2Service_ContactTitleDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryAdd">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryAdd" message="tns:INorthwind2Service_CountryAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryAddResponse" message="tns:INorthwind2Service_CountryAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryGetByID">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetByID" message="tns:INorthwind2Service_CountryGetByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetByIDResponse" message="tns:INorthwind2Service_CountryGetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryGetAllList">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetAllList" message="tns:INorthwind2Service_CountryGetAllList_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetAllListResponse" message="tns:INorthwind2Service_CountryGetAllList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryGetAll">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetAll" message="tns:INorthwind2Service_CountryGetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetAllResponse" message="tns:INorthwind2Service_CountryGetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryUpdate">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryUpdate" message="tns:INorthwind2Service_CountryUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryUpdateResponse" message="tns:INorthwind2Service_CountryUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryDelete">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryDelete" message="tns:INorthwind2Service_CountryDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryDeleteResponse" message="tns:INorthwind2Service_CountryDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAdd">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerAdd" message="tns:INorthwind2Service_CustomerAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerAddResponse" message="tns:INorthwind2Service_CustomerAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGetByID">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetByID" message="tns:INorthwind2Service_CustomerGetByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetByIDResponse" message="tns:INorthwind2Service_CustomerGetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGetAllList">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetAllList" message="tns:INorthwind2Service_CustomerGetAllList_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetAllListResponse" message="tns:INorthwind2Service_CustomerGetAllList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGetAll">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetAll" message="tns:INorthwind2Service_CustomerGetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetAllResponse" message="tns:INorthwind2Service_CustomerGetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerUpdate">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerUpdate" message="tns:INorthwind2Service_CustomerUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerUpdateResponse" message="tns:INorthwind2Service_CustomerUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerDelete">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerDelete" message="tns:INorthwind2Service_CustomerDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerDeleteResponse" message="tns:INorthwind2Service_CustomerDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoryGetAllList">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CategoryGetAllList" message="tns:INorthwind2Service_CategoryGetAllList_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CategoryGetAllListResponse" message="tns:INorthwind2Service_CategoryGetAllList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductGetAll">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ProductGetAll" message="tns:INorthwind2Service_ProductGetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ProductGetAllResponse" message="tns:INorthwind2Service_ProductGetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SupplierGetAllList">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/SupplierGetAllList" message="tns:INorthwind2Service_SupplierGetAllList_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/SupplierGetAllListResponse" message="tns:INorthwind2Service_SupplierGetAllList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAuthentication">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/LoginAuthentication" message="tns:INorthwind2Service_LoginAuthentication_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/LoginAuthenticationResponse" message="tns:INorthwind2Service_LoginAuthentication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationUserToApplicationRoleIsIn">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ApplicationUserToApplicationRoleIsIn" message="tns:INorthwind2Service_ApplicationUserToApplicationRoleIsIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ApplicationUserToApplicationRoleIsInResponse" message="tns:INorthwind2Service_ApplicationUserToApplicationRoleIsIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsernameInApplicationRoles">
+      <wsdl:input wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/UsernameInApplicationRoles" message="tns:INorthwind2Service_UsernameInApplicationRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/UsernameInApplicationRolesResponse" message="tns:INorthwind2Service_UsernameInApplicationRoles_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Northwind2DataBinding_INorthwind2Service_INorthwind2Service" type="tns:INorthwind2Service">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ContactTitleAdd">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleGetByID">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleGetAllList">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetAllList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleGetAll">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleUpdate">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTitleDelete">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ContactTitleDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryAdd">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryGetByID">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryGetAllList">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetAllList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryGetAll">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryUpdate">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryDelete">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CountryDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAdd">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGetByID">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGetAllList">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetAllList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGetAll">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerUpdate">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerDelete">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CustomerDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoryGetAllList">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/CategoryGetAllList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductGetAll">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ProductGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupplierGetAllList">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/SupplierGetAllList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAuthentication">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/LoginAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationUserToApplicationRoleIsIn">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/ApplicationUserToApplicationRoleIsIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsernameInApplicationRoles">
+      <soap:operation soapAction="http://www.northwind.com/services/Northwind2Data/INorthwind2Service/UsernameInApplicationRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Northwind2Service">
+    <wsdl:port name="Northwind2DataBinding_INorthwind2Service_INorthwind2Service" binding="tns:Northwind2DataBinding_INorthwind2Service_INorthwind2Service">
+      <soap:address location="http://localhost:41287/Implementation/Northwind2Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,10 @@
+*************************************************************
+This file builds the "AuditDB" database
+
+Remember to supply the server name when you run this
+batch file.  For example:
+  "  INSTALL  SERVERNAME "
+  or, if installing on the local server:
+  "  INSTALL "
+Enter Control C to terminate. 
+*************************************************************

@@ -1,0 +1,88 @@
+﻿@******************************************************************************
+ *   View Name: _CountryProductList
+ *  Controller: Country
+ *  Decription: Displays products per category
+ *        Date: Tuesday, July 5, 2016
+ *      Author: ksafford                  
+ *                    
+ *  Modification History
+ *  Who    When    What
+ *  --- ---------- -----------------------------------------------------------
+ *  
+*******************************************************************************@
+@using Northwind2.Common.Constants
+@using Northwind2.Mvc3UI.Infrastructure
+@model Northwind2.Mvc3UI.ViewModels.Administration.CountryViewModel
+
+@if ((@Model.CountryID != -1) 
+ && (((@Model.Customers != null) && (@Model.Customers.Count > 0)) ||  
+     ((@Model.Suppliers != null) && (@Model.Suppliers.Count > 0))))
+{
+	<table cellspacing="0" cellpadding="0" class="grid">
+    <tr>
+	    <td valign="top">
+		    @if (Model.Customers != null && Model.Customers.Count > 0) 
+				{
+		    <div>		
+			    <table cellspacing="0" cellpadding="0" class="grid">
+		        <caption>Customers (@Model.Customers.Count)</caption>
+				      <tr>
+					      <td>Id</td>
+					      <td>Name</td>	
+				      </tr>	
+			        @foreach (var item in Model.Customers.OrderBy(x => x.Name))
+							{
+			        <tr>   
+				        <td>@item.ID</td> 
+								<td>
+									@if (User.IsInRole("Administrator") || User.IsInRole("Customers")) 
+									{
+										@Html.ActionLink(item.Name, "Edit", "Customer", new { id=item.ID }, null)
+									} 
+									else 
+									{
+										@Html.ActionLink(item.Name, "Details", "Customer", new { id=item.ID }, null)
+									}		
+								</td>									   							
+			        </tr>
+              }
+		      </table>		
+		    </div>
+        }		
+	    </td>
+	    <td valign="top">
+		    @if (Model.Suppliers != null && Model.Suppliers.Count > 0) 
+				{
+		    <div>		
+			    <table cellspacing="0" cellpadding="0" class="grid">
+		        <caption>Suppliers (@Model.Suppliers.Count)</caption>
+				      <tr>
+					      <td>Id</td>
+					      <td>Name</td>	
+				      </tr>	
+			        @foreach (var item in Model.Suppliers.OrderBy(x => x.Name)) 
+							{
+			        <tr>   
+				        <td>@item.ID</td> 
+								<td>
+									@if (User.IsInRole("Administrator") || User.IsInRole("Products")) 
+									{
+										@Html.ActionLink(item.Name, "Edit", "Supplier", new { id=item.ID }, null)
+									} 
+									else 
+									{
+										@Html.ActionLink(item.Name, "Details", "Supplier", new { id=item.ID }, null)
+									}		
+								</td>									   							
+			        </tr>
+              }
+		      </table>		
+		    </div>
+        }		
+	    </td>
+    </tr>
+  </table>	
+	<div>
+	  @Html.ActionLink(Constants.CANCEL_AND_RETURN_TO_LIST, "Index")
+	</div>
+}

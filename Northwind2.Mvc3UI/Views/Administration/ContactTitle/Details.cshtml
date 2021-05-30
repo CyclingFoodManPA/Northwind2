@@ -1,0 +1,36 @@
+﻿@******************************************************************************
+ *   View Name: Details
+ *  Controller: ContactTitle
+ *  Decription: Allows viewing of a ContactTitle
+ *        Date: Tuesday, July 5, 2016
+ *      Author: ksafford                   
+ *                    
+ *  Modification History
+ *  Who    When    What
+ *  --- ---------- -----------------------------------------------------------
+ *  KSS 05/16/2012 Modified Site.css to include table.grid styles for a better 
+ *                 looking table
+*******************************************************************************@
+@using Northwind2.Common.Constants
+@using Northwind2.Mvc3UI.Infrastructure
+@model Northwind2.Mvc3UI.ViewModels.Administration.ContactTitleViewModel
+
+<fieldset>
+    <legend>ContactTitle Details</legend>     
+    <table cellspacing="0" cellpadding="0" class="grid">
+        <tr>
+            <td>@Html.LabelFor(model => model.ContactTitleID)</td>
+            <td>@Html.DisplayFor(model => model.ContactTitleID)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.ContactTitleName)</td>
+            <td>@Html.DisplayFor(model => model.ContactTitleName)</td>
+        </tr> 
+    </table>
+</fieldset>	     
+    
+<div>
+    @Html.ActionLink(Constants.CANCEL_AND_RETURN_TO_LIST, "Index")
+</div>	
+
+@RenderPage("_ContactTitleProductList.cshtml")

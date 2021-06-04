@@ -42,10 +42,12 @@ namespace Northwind2.Mvc3UI
 
             //Enable DI for Mvc3 UI using Unity
             var container = new UnityContainer();
+
             container
                 .RegisterType<INorthwind2Service, Northwind2ServiceClient>()
                 .Configure<InjectedMembers>()
                 .ConfigureInjectionFor<Northwind2ServiceClient>(new InjectionConstructor("*"));
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 
             //Register logging
